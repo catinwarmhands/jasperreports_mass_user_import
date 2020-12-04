@@ -90,13 +90,14 @@ def main(filename, role):
 
 if __name__== "__main__":
     if len(sys.argv) < 2:
-        print("Укажите файл с пользователями и роль для новых пользователей")
-        exit()
-
-    if len(sys.argv) < 3:
-        print("Укажите роль для новых пользователей")
+        print("Укажите файл с пользователями и, опционально, роль для новых пользователей")
         exit()
 
     INPUT_FILENAME = sys.argv[1]
-    INPUT_ROLE     = sys.argv[2]
+
+    if len(sys.argv) < 3:
+        INPUT_ROLE = "ROLE_USER"
+    else:
+        INPUT_ROLE = sys.argv[2]
+
     main(INPUT_FILENAME, INPUT_ROLE)
